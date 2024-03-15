@@ -21,7 +21,7 @@ const collectEmployees = function() {
           salary = Number(salaryInput);
       }
       
-      //creating this to display
+     
 
         const employee = {
             firstName: firstName,
@@ -54,14 +54,23 @@ function calculateAverageSalary(salaries) {
 
 
 }
-
+}
 
 
 //Select a random employee
 // const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
   
+  const getRandomEmployee = function(employeesArray) {
+    // Generate a random index within the range of the employees array
+    const randomIndex = Math.floor(Math.random() * employeesArray.length);
 
+    // Get the random employee object using the random index
+    const randomEmployee = employeesArray[randomIndex];
+
+    // Log the full name of the random employee to the console
+    console.log(`Random Employee: ${randomEmployee.firstName} ${randomEmployee.lastName}`);
+};
 
 /*
   ====================
