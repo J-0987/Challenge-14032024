@@ -3,15 +3,25 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // Collect employee data
 const collectEmployees = function() {
-  // TODO: Get user input to create and return an array of employee objects
+  /* TODO: Get user input to create and return an array of employee objects.
+  Need a prompt, like in RPS game. 
+  */
+ //create array
   const employees = [];
-
+//prompt to add more employees. While loop to keep the prompt showong up
     let addMoreEmployees = true;
     while (addMoreEmployees) {
     const firstName = prompt("Enter first name:");
         const lastName = prompt("Enter employee's last name:");
         const salaryInput = prompt("Enter employee's salary:");
-        const salary = isNaN(Number(salaryInput)) ? 0 : Number(salaryInput);
+        // ?: is a version of if/else. If i were to do it as if/else, it would be if the salary input, Found this online but not sure how to use:const salary = isNaN(Number(salaryInput)) ? 0 : Number(salaryInput);
+        if (isNaN(Number(salaryInput))) {
+          salary = 0;
+      } else {
+          salary = Number(salaryInput);
+      }
+      
+      //creating this to display
 
         const employee = {
             firstName: firstName,
@@ -19,23 +29,39 @@ const collectEmployees = function() {
             salary: salary
         };
 
-        employeesArray.push(employee);
+        employees.push(employee);
+    
 
         const continueInput = prompt("Do you want to add another employee? (yes/no)");
         addMoreEmployees = continueInput.toLowerCase() === 'yes';
     }
+  
   }
+
 
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
-  // TODO: Calculate and display the average salary
+
+function calculateAverageSalary(salaries) {
+  let totalSalary = 0;
+  employees.forEach(employee => {
+      totalSalary += employee.salary;
+  });
+
+  const averageSalary = totalSalary / employees.length;
+  return averageSalary;
+
+
 }
 
-// Select a random employee
-const getRandomEmployee = function(employeesArray) {
+
+
+//Select a random employee
+// const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
-}
+  
+
 
 /*
   ====================
